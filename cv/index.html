@@ -9,7 +9,7 @@ nav: cv
   <div>
     <p class="eyebrow">Curriculum Vitae</p>
     <h1>CV</h1>
-    <p>Education, research interests, experience, and selected projects in a flexible, Notion-like format.</p>
+    <p>Computer Science and Engineering student focused on learning-based 3D reconstruction, robust visual representation, and geometric uncertainty.</p>
   </div>
   {% if has_cv_pdf != '' %}
     <a class="button" href="{{ has_cv_pdf | relative_url }}" download>Download PDF</a>
@@ -27,17 +27,22 @@ nav: cv
 <section class="cv-board shell" aria-label="Yunseo Cho CV">
   <aside class="cv-sidebar">
     <div>
+      <img class="cv-photo" src="{{ '/assets/images/yunseo-profile.jpg' | relative_url }}" alt="Yunseo Cho portrait">
       <p class="cv-kicker">Profile</p>
       <h2>Yunseo Cho</h2>
-      <p>Robotics and spatial intelligence researcher focused on localization, uncertainty, and field-ready autonomy.</p>
+      <p>B.S. student in Computer Science and Engineering at Korea University of Technology and Education.</p>
     </div>
     <div>
-      <p class="cv-kicker">Interests</p>
+      <p class="cv-kicker">Contact</p>
+      <p class="cv-contact">choyunseo375 [at] gmail [dot] com</p>
+    </div>
+    <div>
+      <p class="cv-kicker">Research Interests</p>
       <ul class="cv-tags">
-        <li>Robotics</li>
-        <li>Spatial intelligence</li>
-        <li>Localization</li>
-        <li>Uncertainty estimation</li>
+        <li>Learning-Based 3D Reconstruction</li>
+        <li>Robust Visual Representation Learning</li>
+        <li>Geometric Consistency</li>
+        <li>Multi-View Vision Uncertainty</li>
       </ul>
     </div>
   </aside>
@@ -45,33 +50,89 @@ nav: cv
   <div class="cv-main">
     <section class="cv-section">
       <p class="cv-kicker">Education</p>
-      <h2>Academic Background</h2>
-      <p>학위, 연구실, 지도교수, 논문 주제를 자유롭게 확장해 적을 수 있는 영역입니다.</p>
+      <h2>Korea University of Technology and Education</h2>
+      <div class="cv-items">
+        <div class="cv-item">
+          <span>02/2022 - 02/2027 Expected</span>
+          <strong>B.S. in Computer Science and Engineering</strong>
+          <em>Total GPA 4.08/4.5, completed credits 154</em>
+        </div>
+      </div>
     </section>
 
     <section class="cv-section">
       <p class="cv-kicker">Experience</p>
-      <h2>Research and Projects</h2>
+      <h2>Research Experience</h2>
       <div class="cv-items">
-        {% assign careers = site.career | sort: 'date' | reverse %}
-        {% for item in careers limit: 4 %}
-          <a class="cv-item" href="{{ item.url | relative_url }}">
-            <span>{% if item.period %}{{ item.period }}{% else %}{{ item.date | date: '%Y.%m' }}{% endif %}</span>
-            <strong>{{ item.title }}</strong>
-            {% if item.description %}<em>{{ item.description }}</em>{% endif %}
-          </a>
-        {% endfor %}
+        <div class="cv-item">
+          <span>01/2026 - 06/2026</span>
+          <strong>Korea Advanced Institute of Science and Technology, Urban Robotics Lab Intern</strong>
+          <em>Developed a confidence-estimation method for cross-view geo-localization in off-road terrain by combining temporal localization consistency with particle-filter spatial dispersion.</em>
+          <em>Improved the coefficient of determination between estimated confidence and localization error from R2=0.165 to R2=0.656 on an unseen outdoor field dataset without additional model training.</em>
+        </div>
+        <div class="cv-item">
+          <span>06/2025 - 12/2025</span>
+          <strong>Korea Atomic Energy Research Institute, ARMstrong Lab Intern</strong>
+          <em>Designed and optimized a real-time MuJoCo simulator for a mobile robotic system with an 18-DoF dual-arm manipulator, a 3-DoF articulated mechanism, and a four-wheel base.</em>
+          <em>Integrated keyboard-based control and an HCI teleoperation device for leader-follower operation while sustaining a 10-Hz virtual camera stream.</em>
+        </div>
+        <div class="cv-item">
+          <span>01/2024 - 02/2025</span>
+          <strong>K-ROAD, KOREATECH Autonomous Driving Research Group Manager</strong>
+          <em>Developed heuristic local path-planning logic for static and dynamic obstacle avoidance in GPS-denied environments.</em>
+          <em>Designed simulation test requirements and conducted QA, failure analysis, and risk assessment for autonomous-driving path-planning functions.</em>
+          <em>Coordinated research equipment maintenance and purchasing for the student research group.</em>
+        </div>
+      </div>
+    </section>
+
+    <section class="cv-section">
+      <p class="cv-kicker">Projects</p>
+      <h2>Selected Projects</h2>
+      <div class="cv-items">
+        <div class="cv-item">
+          <span>01/2025 - 06/2025</span>
+          <strong>Wearable PPG-Based Learning Focus Support System</strong>
+          <em>Awarded Best Capstone Project.</em>
+          <em>Developed and evaluated a deep-learning pipeline for estimating learning focus from wrist PPG signals using a three-layer LSTM with two-head self-attention and user-ID embeddings.</em>
+          <em>Implemented user-specific calibration using self-reported focus feedback and collaborated with frontend and backend developers to integrate the model into a wearable learning-support system.</em>
+        </div>
+        <div class="cv-item">
+          <span>03/2025 - 06/2025</span>
+          <strong>Autonomous Driving Robot Software Design Using TurtleBot</strong>
+          <em>Implemented camera-based lane detection and autonomous driving on curved tracks, placing 2nd among 10 teams.</em>
+          <em>Built an indoor navigation system using TurtleBot3 SLAM and the ROS Navigation Stack.</em>
+        </div>
+      </div>
+    </section>
+
+    <section class="cv-section">
+      <p class="cv-kicker">Awards & Honors</p>
+      <h2>Recognition</h2>
+      <div class="cv-items">
+        <div class="cv-item">
+          <span>11/2024</span>
+          <strong>2024 University Student Creative Mobility Competition, Unmanned Mobility Division</strong>
+          <em>Minister of Land, Infrastructure and Transport Award, Team KORUS.</em>
+        </div>
+        <div class="cv-item">
+          <span>2022 - 2025</span>
+          <strong>Merit-based Scholarship</strong>
+          <em>Awarded for academic excellence during admission and four regular semesters, received five times.</em>
+        </div>
       </div>
     </section>
 
     <section class="cv-section">
       <p class="cv-kicker">Skills</p>
-      <h2>Methods and Tools</h2>
-      <ul class="cv-list">
-        <li>Cross-view geo-localization and confidence estimation</li>
-        <li>SLAM evaluation, odometry benchmarking, and reproducible experiments</li>
-        <li>Technical writing for research notes and project retrospectives</li>
-      </ul>
+      <h2>Technical Stack</h2>
+      <div class="skill-grid">
+        <div><span>Programming Languages</span><strong>C/C++, Python</strong></div>
+        <div><span>Robotics</span><strong>ROS/ROS2, MORAI, MuJoCo</strong></div>
+        <div><span>Library & Framework</span><strong>OpenCV, PyTorch</strong></div>
+        <div><span>Systems</span><strong>Linux</strong></div>
+        <div><span>Certification</span><strong>Engineer Big-Data Analytics, KDATA</strong></div>
+      </div>
     </section>
   </div>
 </section>

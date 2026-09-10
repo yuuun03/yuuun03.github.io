@@ -57,12 +57,12 @@ button { color: inherit; }
 .site-nav > a, .nav-group > a { position: relative; padding-block: 26px; }
 .site-nav > a::after, .nav-group > a::after { content: ""; position: absolute; left: 0; right: 100%; bottom: 19px; height: 1px; background: currentColor; transition: right .2s ease; }
 .site-nav > a:hover::after, .site-nav > a[aria-current="page"]::after, .nav-group > a:hover::after, .nav-group > a[aria-current="page"]::after { right: 0; }
-.nav-group { position: relative; display: flex; align-items: center; }
+.nav-group { position: relative; z-index: 35; display: flex; align-items: center; }
 .submenu-toggle { padding: 8px 3px; border: 0; background: none; cursor: pointer; }
-.submenu { position: absolute; top: calc(100% - 10px); left: 50%; min-width: 190px; padding: 8px; background: var(--surface); color: var(--ink); border: 1px solid var(--line); box-shadow: var(--shadow); opacity: 0; visibility: hidden; transform: translate(-50%, 8px); transition: .18s ease; }
+.submenu { position: absolute; z-index: 50; top: calc(100% - 10px); left: 50%; min-width: 190px; padding: 8px; background: var(--surface); color: var(--ink); border: 1px solid var(--line); box-shadow: var(--shadow); opacity: 0; visibility: hidden; pointer-events: none; transform: translate(-50%, 8px); transition: .18s ease; }
 .submenu a { display: block; padding: 9px 12px; font-size: .85rem; }
 .submenu a:hover { background: #edf1f1; }
-.nav-group:hover .submenu, .nav-group:focus-within .submenu, .nav-group.submenu-open .submenu { opacity: 1; visibility: visible; transform: translate(-50%, 0); }
+.nav-group:hover .submenu, .nav-group:focus-within .submenu, .nav-group.submenu-open .submenu { opacity: 1; visibility: visible; pointer-events: auto; transform: translate(-50%, 0); }
 .nav-toggle { display: none; width: 42px; height: 42px; padding: 10px; border: 0; background: transparent; }
 .nav-toggle span:not(.sr-only) { display: block; height: 1px; margin: 5px 0; background: currentColor; }
 
@@ -152,9 +152,11 @@ button { color: inherit; }
 .cv-board { display: grid; grid-template-columns: minmax(240px, 32%) 1fr; gap: 18px; padding: 48px 0 120px; }
 .cv-sidebar, .cv-section { background: var(--surface); border: 1px solid var(--line); }
 .cv-sidebar { display: flex; flex-direction: column; gap: 34px; align-self: start; padding: 28px; position: sticky; top: 22px; }
+.cv-photo { width: 100%; aspect-ratio: 4 / 5; margin-bottom: 22px; object-fit: cover; object-position: center; border: 1px solid var(--line); }
 .cv-sidebar h2, .cv-section h2 { margin: 0; font-family: Georgia, "Times New Roman", serif; font-weight: 400; line-height: 1.2; }
 .cv-sidebar h2 { font-size: 2rem; }
 .cv-sidebar p { margin: 10px 0 0; color: var(--muted); }
+.cv-contact { overflow-wrap: anywhere; }
 .cv-kicker { margin: 0 0 8px; color: var(--glint); font-size: .74rem; font-weight: 750; text-transform: uppercase; }
 .cv-tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0 0; padding: 0; list-style: none; }
 .cv-tags li { padding: 6px 10px; background: var(--surface-soft); border: 1px solid var(--line); font-size: .83rem; }
@@ -168,6 +170,10 @@ button { color: inherit; }
 .cv-item strong { font-size: 1.02rem; }
 .cv-item em { grid-column: 2; color: var(--muted); font-style: normal; }
 .cv-list { margin: 18px 0 0; padding-left: 20px; color: var(--muted); }
+.skill-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 18px; }
+.skill-grid div { padding: 15px; background: var(--surface-soft); border: 1px solid var(--line); }
+.skill-grid span { display: block; margin-bottom: 5px; color: var(--muted); font-size: .78rem; }
+.skill-grid strong { display: block; font-size: .96rem; line-height: 1.45; }
 
 .article { padding-top: 86px; padding-bottom: 110px; }
 .article-header { margin-bottom: 45px; }
@@ -206,6 +212,7 @@ button { color: inherit; }
   .page-intro { padding: 65px 0 45px; }
   .page-intro h1 { font-size: clamp(3.5rem, 20vw, 5.7rem); }
   .blog-toolbar { grid-template-columns: 1fr 1fr; }
+  .blog-toolbar:has(.search-field:only-child) { grid-template-columns: 1fr; }
   .search-field { grid-column: 1 / -1; }
   .select-field { min-width: 0; }
   .post-card { grid-template-columns: 1fr; gap: 18px; }
@@ -219,6 +226,7 @@ button { color: inherit; }
   .cv-section { padding: 24px; }
   .cv-item { grid-template-columns: 1fr; }
   .cv-item em { grid-column: auto; }
+  .skill-grid { grid-template-columns: 1fr; }
   .cv-frame { padding-top: 30px; }
   .cv-frame object { height: 75vh; }
   .article { padding-top: 62px; }

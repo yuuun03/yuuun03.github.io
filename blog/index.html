@@ -11,27 +11,30 @@ nav: blog
 </section>
 
 <section class="blog-browser shell" data-blog-browser>
-  <div class="section-strip" aria-label="블로그 섹션">
-    <button type="button" data-blog-category-button value="">All posts</button>
-    {% assign category_names = site.categories | sort %}
-    {% for category in category_names %}
-      <button type="button" data-blog-category-button value="{{ category[0] | escape }}">{{ category[0] }}</button>
-    {% endfor %}
-  </div>
+  {% assign category_names = site.categories | sort %}
+  {% if category_names.size > 0 %}
+    <div class="section-strip" aria-label="블로그 섹션">
+      <button type="button" data-blog-category-button value="">All posts</button>
+      {% for category in category_names %}
+        <button type="button" data-blog-category-button value="{{ category[0] | escape }}">{{ category[0] }}</button>
+      {% endfor %}
+    </div>
+  {% endif %}
 
   <div class="blog-toolbar">
     <label class="search-field">
       <span class="sr-only">제목 또는 본문 검색</span>
       <input type="search" placeholder="제목이나 본문에서 검색" data-blog-search>
     </label>
-    <label class="select-field">
-      <span>Section</span>
-      <select data-blog-category>
-        <option value="">All posts</option>
-        {% assign category_names = site.categories | sort %}
-        {% for category in category_names %}<option value="{{ category[0] | escape }}">{{ category[0] }}</option>{% endfor %}
-      </select>
-    </label>
+    {% if category_names.size > 0 %}
+      <label class="select-field">
+        <span>Section</span>
+        <select data-blog-category>
+          <option value="">All posts</option>
+          {% for category in category_names %}<option value="{{ category[0] | escape }}">{{ category[0] }}</option>{% endfor %}
+        </select>
+      </label>
+    {% endif %}
     <label class="select-field">
       <span>Sort</span>
       <select data-blog-sort>
