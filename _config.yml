@@ -1,5 +1,5 @@
 title: "Yunseo Cho"
-description: "Robotics, spatial intelligence, research notes, and career records."
+description: "Robotics, spatial intelligence, research notes, news, and activities."
 author: "Yunseo Cho"
 lang: ko-KR
 timezone: Asia/Seoul
@@ -19,9 +19,9 @@ markdown: kramdown
 highlighter: rouge
 
 collections:
-  career:
+  news:
     output: true
-    permalink: /career/:name/
+    permalink: /news/:name/
 
 defaults:
   - scope:
@@ -31,9 +31,9 @@ defaults:
       layout: post
   - scope:
       path: ""
-      type: career
+      type: news
     values:
-      layout: career-item
+      layout: news-item
 
 exclude:
   - README.md

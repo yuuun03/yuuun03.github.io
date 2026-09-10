@@ -5,16 +5,6 @@ description: Yunseo Cho curriculum vitae.
 nav: cv
 ---
 {% assign has_cv_pdf = site.cv_pdf | default: '' | strip %}
-<section class="page-intro shell cv-intro">
-  <div>
-    <p class="eyebrow">Curriculum Vitae</p>
-    <h1>CV</h1>
-    <p>Computer Science and Engineering student focused on learning-based 3D reconstruction, robust visual representation, and geometric uncertainty.</p>
-  </div>
-  {% if has_cv_pdf != '' %}
-    <a class="button" href="{{ has_cv_pdf | relative_url }}" download>Download PDF</a>
-  {% endif %}
-</section>
 
 {% if has_cv_pdf != '' %}
   <section class="cv-frame shell" aria-label="Yunseo Cho CV PDF">

@@ -20,5 +20,5 @@ ruby bin/jekyll-ruby4.rb serve --host 127.0.0.1 --port 4000 --livereload
 
 - 블로그 글은 `_posts/`에 추가합니다.
 - 블로그 섹션은 글의 `categories` front matter로 자동 생성됩니다.
-- 커리어 기록은 `_career/`에 추가하며, 블로그 인기/최신 목록에는 섞이지 않습니다.
+- 뉴스와 활동 기록은 `_news/`에 추가하며, 블로그 인기/최신 목록에는 섞이지 않습니다.
 - CV PDF를 쓰려면 파일을 `assets/files/` 등에 넣고 `_config.yml`의 `cv_pdf`에 경로를 적습니다.
