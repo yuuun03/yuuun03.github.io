@@ -14,9 +14,9 @@ body_class: home-page
   <a class="hero-scroll" href="#post-highlights" aria-label="게시글 모음으로 이동">Scroll <span aria-hidden="true">&darr;</span></a>
 </section>
 
-<section id="post-highlights" class="highlights shell" aria-label="추천 게시글">
-  {% assign popular_posts = site.posts | sort: 'views' | reverse | slice: 0, 5 %}
-  {% if popular_posts.size > 0 %}
+{% if site.posts.size > 0 %}
+  <section id="post-highlights" class="highlights shell" aria-label="추천 게시글">
+    {% assign popular_posts = site.posts | sort: 'views' | reverse | slice: 0, 5 %}
     <div class="highlight-row" data-carousel>
       <div class="section-heading">
         <div><p class="eyebrow">Most read</p><h2>Popular posts</h2></div>
@@ -42,10 +42,8 @@ body_class: home-page
         </a>
       </div>
     </div>
-  {% endif %}
 
-  {% assign latest_posts = site.posts | slice: 0, 5 %}
-  {% if latest_posts.size > 0 %}
+    {% assign latest_posts = site.posts | slice: 0, 5 %}
     <div class="highlight-row" data-carousel>
       <div class="section-heading">
         <div><p class="eyebrow">Recently published</p><h2>Latest posts</h2></div>
@@ -71,5 +69,5 @@ body_class: home-page
         </a>
       </div>
     </div>
-  {% endif %}
-</section>
+  </section>
+{% endif %}
