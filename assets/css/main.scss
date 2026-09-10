@@ -163,18 +163,20 @@ button { color: inherit; }
 .cv-tags li { padding: 6px 10px; background: var(--surface-soft); border: 1px solid var(--line); font-size: .83rem; }
 .cv-main { display: grid; gap: 18px; }
 .cv-section { padding: 30px; }
-.cv-section h2 { font-size: clamp(1.65rem, 3vw, 2.35rem); }
+.cv-section h2 { margin-bottom: 26px; font-size: clamp(1.75rem, 3vw, 2.45rem); }
 .cv-section p { color: var(--muted); }
-.cv-items { display: grid; gap: 10px; margin-top: 18px; }
-.cv-item { display: grid; grid-template-columns: minmax(120px, 170px) 1fr; gap: 10px 18px; padding: 16px 0; border-top: 1px solid var(--line); }
+.cv-items { display: grid; gap: 8px; }
+.cv-item { display: grid; grid-template-columns: minmax(98px, 132px) 1fr; gap: 10px 16px; padding: 16px 0; border-top: 1px solid var(--line); }
 .cv-item span { color: var(--muted); font-size: .85rem; }
 .cv-item strong { font-size: 1.02rem; }
+.cv-item strong a { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; }
+.cv-item strong a:hover { color: var(--ocean); }
 .cv-item em { grid-column: 2; color: var(--muted); font-style: normal; }
 .cv-list { margin: 18px 0 0; padding-left: 20px; color: var(--muted); }
-.cv-skill-list { margin: 18px 0 0; }
-.cv-skill-list div { display: grid; grid-template-columns: minmax(150px, 230px) 1fr; gap: 18px; padding: 12px 0; border-top: 1px solid var(--line); }
-.cv-skill-list dt { color: var(--muted); font-size: .88rem; }
-.cv-skill-list dd { margin: 0; color: var(--ink); font-weight: 620; }
+.cv-skill-list { margin: 0; border-top: 1px solid var(--line); }
+.cv-skill-list div { display: grid; grid-template-columns: minmax(160px, 34%) 1fr; gap: 28px; padding: 13px 0; }
+.cv-skill-list dt { color: var(--ink); font-size: .98rem; font-weight: 700; }
+.cv-skill-list dd { margin: 0; color: var(--ink); font-size: .98rem; }
 
 .article { padding-top: 86px; padding-bottom: 110px; }
 .article-header { margin-bottom: 45px; }
