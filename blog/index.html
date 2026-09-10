@@ -1,0 +1,54 @@
+---
+layout: default
+title: Blog
+description: 연구, 프로젝트, 논문을 기록합니다.
+nav: blog
+---
+<section class="page-intro shell">
+  <p class="eyebrow">Writing archive</p>
+  <h1>Blog</h1>
+  <p>연구하며 읽고, 만들고, 이해한 것을 섹션별로 기록합니다. 섹션을 고르지 않으면 모든 글이 최신순으로 보입니다.</p>
+</section>
+
+<section class="blog-browser shell" data-blog-browser>
+  <div class="section-strip" aria-label="블로그 섹션">
+    <button type="button" data-blog-category-button value="">All posts</button>
+    {% assign category_names = site.categories | sort %}
+    {% for category in category_names %}
+      <button type="button" data-blog-category-button value="{{ category[0] | escape }}">{{ category[0] }}</button>
+    {% endfor %}
+  </div>
+
+  <div class="blog-toolbar">
+    <label class="search-field">
+      <span class="sr-only">제목 또는 본문 검색</span>
+      <input type="search" placeholder="제목이나 본문에서 검색" data-blog-search>
+    </label>
+    <label class="select-field">
+      <span>Section</span>
+      <select data-blog-category>
+        <option value="">All posts</option>
+        {% assign category_names = site.categories | sort %}
+        {% for category in category_names %}<option value="{{ category[0] | escape }}">{{ category[0] }}</option>{% endfor %}
+      </select>
+    </label>
+    <label class="select-field">
+      <span>Sort</span>
+      <select data-blog-sort>
+        <option value="latest">Latest</option>
+        <option value="oldest">Oldest</option>
+        <option value="popular">Most popular</option>
+        <option value="unpopular">Least popular</option>
+      </select>
+    </label>
+  </div>
+
+  <p class="result-count" aria-live="polite"><span data-blog-count>{{ site.posts.size }}</span> posts</p>
+  <div class="post-list" data-blog-list>
+    {% for post in site.posts %}{% include post-card.html post=post %}{% endfor %}
+  </div>
+  <div class="empty-state" data-blog-empty hidden>
+    <h2>검색 결과가 없습니다.</h2>
+    <p>검색어나 섹션을 바꿔보세요.</p>
+  </div>
+</section>

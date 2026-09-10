@@ -1,0 +1,42 @@
+title: "Yunseo Cho"
+description: "Robotics, spatial intelligence, research notes, and career records."
+author: "Yunseo Cho"
+lang: ko-KR
+timezone: Asia/Seoul
+url: ""
+baseurl: ""
+permalink: /blog/:categories/:year/:month/:day/:title/
+
+hero:
+  title: "Hello, World!"
+  subtitle: "Robotics, spatial intelligence, and the notes I keep while learning how machines understand places."
+  image: /assets/images/hero-wave.webp
+  image_alt: "윤슬을 머금고 부서지는 파도"
+
+cv_pdf: ""
+
+markdown: kramdown
+highlighter: rouge
+
+collections:
+  career:
+    output: true
+    permalink: /career/:name/
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+  - scope:
+      path: ""
+      type: career
+    values:
+      layout: career-item
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor

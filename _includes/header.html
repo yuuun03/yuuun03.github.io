@@ -1,0 +1,35 @@
+<header class="site-header">
+  <div class="shell header-inner">
+    <a class="wordmark" href="{{ '/' | relative_url }}" aria-label="{{ site.title }} 홈">
+      <span class="wordmark-dot" aria-hidden="true"></span>
+      <span>{{ site.title }}</span>
+    </a>
+
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-navigation">
+      <span class="sr-only">메뉴 열기</span>
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav id="site-navigation" class="site-nav" aria-label="주 메뉴">
+      <a href="{{ '/' | relative_url }}" {% if page.nav == 'home' %}aria-current="page"{% endif %}>Home</a>
+      <a href="{{ '/cv/' | relative_url }}" {% if page.nav == 'cv' %}aria-current="page"{% endif %}>CV</a>
+
+      <div class="nav-group">
+        <a href="{{ '/blog/' | relative_url }}" {% if page.nav == 'blog' %}aria-current="page"{% endif %}>Blog</a>
+        {% if site.categories.size > 0 %}
+          <button class="submenu-toggle" type="button" aria-expanded="false" aria-label="블로그 섹션 열기">⌄</button>
+          <div class="submenu">
+            <a href="{{ '/blog/' | relative_url }}">All posts</a>
+            {% assign category_names = site.categories | sort %}
+            {% for category in category_names %}
+              <a href="{{ '/blog/' | relative_url }}?category={{ category[0] | url_encode }}">{{ category[0] }}</a>
+            {% endfor %}
+          </div>
+        {% endif %}
+      </div>
+
+      <a href="{{ '/career/' | relative_url }}" {% if page.nav == 'career' %}aria-current="page"{% endif %}>Career</a>
+    </nav>
+  </div>
+</header>
+

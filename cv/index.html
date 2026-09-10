@@ -1,0 +1,77 @@
+---
+layout: default
+title: CV
+description: Yunseo Cho curriculum vitae.
+nav: cv
+---
+{% assign has_cv_pdf = site.cv_pdf | default: '' | strip %}
+<section class="page-intro shell cv-intro">
+  <div>
+    <p class="eyebrow">Curriculum Vitae</p>
+    <h1>CV</h1>
+    <p>Education, research interests, experience, and selected projects in a flexible, Notion-like format.</p>
+  </div>
+  {% if has_cv_pdf != '' %}
+    <a class="button" href="{{ has_cv_pdf | relative_url }}" download>Download PDF</a>
+  {% endif %}
+</section>
+
+{% if has_cv_pdf != '' %}
+  <section class="cv-frame shell" aria-label="Yunseo Cho CV PDF">
+    <object data="{{ has_cv_pdf | relative_url }}#view=FitH" type="application/pdf">
+      <p>브라우저에서 PDF를 표시할 수 없습니다. <a href="{{ has_cv_pdf | relative_url }}">CV 열기</a></p>
+    </object>
+  </section>
+{% endif %}
+
+<section class="cv-board shell" aria-label="Yunseo Cho CV">
+  <aside class="cv-sidebar">
+    <div>
+      <p class="cv-kicker">Profile</p>
+      <h2>Yunseo Cho</h2>
+      <p>Robotics and spatial intelligence researcher focused on localization, uncertainty, and field-ready autonomy.</p>
+    </div>
+    <div>
+      <p class="cv-kicker">Interests</p>
+      <ul class="cv-tags">
+        <li>Robotics</li>
+        <li>Spatial intelligence</li>
+        <li>Localization</li>
+        <li>Uncertainty estimation</li>
+      </ul>
+    </div>
+  </aside>
+
+  <div class="cv-main">
+    <section class="cv-section">
+      <p class="cv-kicker">Education</p>
+      <h2>Academic Background</h2>
+      <p>학위, 연구실, 지도교수, 논문 주제를 자유롭게 확장해 적을 수 있는 영역입니다.</p>
+    </section>
+
+    <section class="cv-section">
+      <p class="cv-kicker">Experience</p>
+      <h2>Research and Projects</h2>
+      <div class="cv-items">
+        {% assign careers = site.career | sort: 'date' | reverse %}
+        {% for item in careers limit: 4 %}
+          <a class="cv-item" href="{{ item.url | relative_url }}">
+            <span>{% if item.period %}{{ item.period }}{% else %}{{ item.date | date: '%Y.%m' }}{% endif %}</span>
+            <strong>{{ item.title }}</strong>
+            {% if item.description %}<em>{{ item.description }}</em>{% endif %}
+          </a>
+        {% endfor %}
+      </div>
+    </section>
+
+    <section class="cv-section">
+      <p class="cv-kicker">Skills</p>
+      <h2>Methods and Tools</h2>
+      <ul class="cv-list">
+        <li>Cross-view geo-localization and confidence estimation</li>
+        <li>SLAM evaluation, odometry benchmarking, and reproducible experiments</li>
+        <li>Technical writing for research notes and project retrospectives</li>
+      </ul>
+    </section>
+  </div>
+</section>

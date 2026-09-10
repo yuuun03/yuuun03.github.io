@@ -1,0 +1,37 @@
+---
+layout: default
+title: Career
+description: 연구와 프로젝트 경험을 연도별로 기록합니다.
+nav: career
+---
+<section class="page-intro shell">
+  <p class="eyebrow">Selected timeline</p>
+  <h1>Career</h1>
+  <p>연구와 프로젝트에서 마주한 과정과 결과를 별도로 기록합니다.</p>
+</section>
+
+<section class="career-archive shell">
+  {% assign careers = site.career | sort: 'date' | reverse %}
+  {% assign career_years = careers | group_by_exp: 'item', "item.date | date: '%Y'" %}
+  {% for year in career_years %}
+    <section class="career-year" aria-labelledby="career-{{ year.name }}">
+      <h2 id="career-{{ year.name }}">{{ year.name }}</h2>
+      <div class="career-grid">
+        {% for item in year.items %}
+          <a class="career-card" href="{{ item.url | relative_url }}">
+            {% if item.image %}
+              <img src="{{ item.image | relative_url }}" alt="" loading="lazy">
+            {% else %}
+              <div class="career-fallback" aria-hidden="true"><span>{{ item.date | date: '%Y' }}</span></div>
+            {% endif %}
+            <div class="career-card-copy">
+              <p>{% if item.period %}{{ item.period }}{% else %}{{ item.date | date: '%Y.%m' }}{% endif %}</p>
+              <h3>{{ item.title }}</h3>
+              {% if item.description %}<span>{{ item.description }}</span>{% endif %}
+            </div>
+          </a>
+        {% endfor %}
+      </div>
+    </section>
+  {% endfor %}
+</section>
