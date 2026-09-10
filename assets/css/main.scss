@@ -149,11 +149,11 @@ button { color: inherit; }
 .button-quiet { color: var(--ink); background: transparent; border-color: var(--line); }
 .cv-frame { padding: 48px 0 110px; }
 .cv-frame object { display: block; width: 100%; height: min(82vh, 1040px); background: #e6e9e8; border: 1px solid var(--line); box-shadow: var(--shadow); }
-.cv-board { display: grid; grid-template-columns: minmax(190px, 24%) 1fr; gap: 22px; padding: 48px 0 120px; }
+.cv-board { display: block; padding: 48px 0 120px; }
 .cv-sidebar, .cv-section { background: var(--surface); border: 1px solid var(--line); }
-.cv-sidebar { display: flex; flex-direction: column; gap: 28px; align-self: start; padding: 22px; }
-.cv-profile-block { text-align: left; }
-.cv-photo { width: min(150px, 100%); aspect-ratio: 4 / 5; margin: 0 0 20px; object-fit: cover; object-position: center; border: 1px solid var(--line); }
+.cv-sidebar { display: grid; grid-template-columns: minmax(260px, 1.2fr) minmax(180px, .8fr) minmax(260px, 1.4fr); gap: 24px; align-items: start; padding: 24px; margin-bottom: 22px; }
+.cv-profile-block { display: grid; grid-template-columns: 96px 1fr; gap: 18px; align-items: start; text-align: left; }
+.cv-photo { width: 96px; aspect-ratio: 4 / 5; object-fit: cover; object-position: center; border: 1px solid var(--line); }
 .cv-sidebar h2, .cv-section h2 { margin: 0; font-family: Georgia, "Times New Roman", serif; font-weight: 400; line-height: 1.2; }
 .cv-sidebar h2 { font-size: 2rem; }
 .cv-sidebar p { margin: 10px 0 0; color: var(--muted); }
@@ -171,6 +171,10 @@ button { color: inherit; }
 .cv-item strong { font-size: 1.02rem; }
 .cv-item em { grid-column: 2; color: var(--muted); font-style: normal; }
 .cv-list { margin: 18px 0 0; padding-left: 20px; color: var(--muted); }
+.cv-skill-list { margin: 18px 0 0; }
+.cv-skill-list div { display: grid; grid-template-columns: minmax(150px, 230px) 1fr; gap: 18px; padding: 12px 0; border-top: 1px solid var(--line); }
+.cv-skill-list dt { color: var(--muted); font-size: .88rem; }
+.cv-skill-list dd { margin: 0; color: var(--ink); font-weight: 620; }
 
 .article { padding-top: 86px; padding-bottom: 110px; }
 .article-header { margin-bottom: 45px; }
@@ -218,11 +222,14 @@ button { color: inherit; }
   .career-grid { grid-template-columns: 1fr; }
   .cv-intro { display: block; }
   .cv-intro .button { margin-top: 28px; }
-  .cv-board { grid-template-columns: 1fr; padding: 32px 0 82px; }
-  .cv-sidebar { position: static; padding: 24px; }
+  .cv-board { padding: 32px 0 82px; }
+  .cv-sidebar { grid-template-columns: 1fr; padding: 24px; }
+  .cv-profile-block { grid-template-columns: 82px 1fr; }
+  .cv-photo { width: 82px; }
   .cv-section { padding: 24px; }
   .cv-item { grid-template-columns: 1fr; }
   .cv-item em { grid-column: auto; }
+  .cv-skill-list div { grid-template-columns: 1fr; gap: 4px; }
   .cv-frame { padding-top: 30px; }
   .cv-frame object { height: 75vh; }
   .article { padding-top: 62px; }

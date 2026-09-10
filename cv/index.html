@@ -28,9 +28,11 @@ nav: cv
   <aside class="cv-sidebar">
     <div class="cv-profile-block">
       <img class="cv-photo" src="{{ '/assets/images/yunseo-profile.jpg' | relative_url }}" alt="Yunseo Cho portrait">
-      <p class="cv-kicker">Profile</p>
-      <h2>Yunseo Cho</h2>
-      <p>B.S. student in Computer Science and Engineering at Korea University of Technology and Education.</p>
+      <div>
+        <p class="cv-kicker">Profile</p>
+        <h2>Yunseo Cho</h2>
+        <p>B.S. student in Computer Science and Engineering at Korea University of Technology and Education.</p>
+      </div>
     </div>
     <div>
       <p class="cv-kicker">Contact</p>
@@ -125,7 +127,28 @@ nav: cv
     <section class="cv-section">
       <p class="cv-kicker">Skills</p>
       <h2>Technical Stack</h2>
-      <p>C/C++ and Python for programming; ROS/ROS2, MORAI, and MuJoCo for robotics development and simulation; OpenCV and PyTorch for computer vision and learning-based experiments; Linux for development environments. Certified Engineer Big-Data Analytics by KDATA.</p>
+      <dl class="cv-skill-list">
+        <div>
+          <dt>Programming Languages</dt>
+          <dd>C/C++, Python</dd>
+        </div>
+        <div>
+          <dt>Robotics</dt>
+          <dd>ROS/ROS2, MORAI, MuJoCo</dd>
+        </div>
+        <div>
+          <dt>Library & Framework</dt>
+          <dd>OpenCV, PyTorch</dd>
+        </div>
+        <div>
+          <dt>Systems</dt>
+          <dd>Linux</dd>
+        </div>
+        <div>
+          <dt>Certification</dt>
+          <dd>Engineer Big-Data Analytics, KDATA</dd>
+        </div>
+      </dl>
     </section>
   </div>
 </section>
