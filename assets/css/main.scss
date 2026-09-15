@@ -205,6 +205,12 @@ button { color: inherit; }
 .article-content code { padding: .12em .35em; background: #e9eded; }
 .article-content pre { overflow-x: auto; padding: 22px; color: #eef5f5; background: var(--ocean-deep); }
 .article-content pre code { padding: 0; background: none; }
+.article-content .ihm-table-wrap { max-width: 100%; margin: 1.5rem 0; overflow-x: auto; }
+.article-content .ihm-table { width: 100%; min-width: max-content; border-collapse: collapse; }
+.article-content .ihm-table th, .article-content .ihm-table td { min-width: 110px; padding: 10px 12px; border: 1px solid var(--line); text-align: left; vertical-align: top; }
+.article-content .ihm-table th { background: #eff4f1; font-weight: 700; }
+.article-content .ihm-math-block { max-width: 100%; margin: 1.5rem 0; overflow-x: auto; }
+.article-content .ihm-math-inline { display: inline-block; max-width: 100%; vertical-align: middle; }
 .article-footer { margin-top: 65px; padding-top: 28px; border-top: 1px solid var(--line); }
 
 .site-footer { color: rgba(255,255,255,.73); background: var(--ocean-deep); }
